@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ResultMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ResultMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Course">
           <Key>
             <PropertyRef Name="Id" />
@@ -34,6 +34,7 @@
           <Property Name="FacAcronyms" Type="nvarchar(max)" />
           <Property Name="SchoolId" Type="int" />
           <Property Name="IsVisible" Type="bit" />
+          <Property Name="FacName" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Level">
           <Key>
@@ -483,8 +484,7 @@
             <End Role="StudentLevel" EntitySet="StudentLevel" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ResultMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -523,6 +523,7 @@
           <Property Name="IsVisible" Type="Boolean" />
           <NavigationProperty Name="Departments" Relationship="Self.FK_Department_Faculty" FromRole="Faculty" ToRole="Department" />
           <NavigationProperty Name="School" Relationship="Self.FK_Faculty_School" FromRole="Faculty" ToRole="School" />
+          <Property Name="FacName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Level">
           <Key>
@@ -1034,6 +1035,7 @@
           <EntitySetMapping Name="Faculties">
             <EntityTypeMapping TypeName="ResultMModel.Faculty">
               <MappingFragment StoreEntitySet="Faculty">
+                <ScalarProperty Name="FacName" ColumnName="FacName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FacAcronyms" ColumnName="FacAcronyms" />
                 <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />

@@ -24,6 +24,7 @@ namespace DAL
         public string FacAcronyms { get; set; }
         public Nullable<int> SchoolId { get; set; }
         public Nullable<bool> IsVisible { get; set; }
+        public string FacName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Department> Departments { get; set; }

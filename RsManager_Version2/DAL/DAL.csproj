@@ -74,6 +74,17 @@
       <DependentUpon>RS.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Implementation\DepartmentRepository.cs" />
+    <Compile Include="Repository\Implementation\ResultLINQ.cs" />
+    <Compile Include="Repository\Implementation\Repository.cs" />
+    <Compile Include="Repository\Implementation\FacultyRepository.cs" />
+    <Compile Include="Repository\Implementation\SchoolRepository.cs" />
+    <Compile Include="Repository\Interface\Class1.cs" />
+    <Compile Include="Repository\Interface\IDepartmentRepository.cs" />
+    <Compile Include="Repository\Interface\IFacultyRepository.cs" />
+    <Compile Include="Repository\Interface\ISchoolRepository.cs" />
+    <Compile Include="Repository\Interface\IRepository.cs" />
+    <Compile Include="Repository\Interface\IResultLINQ.cs" />
     <Compile Include="RS.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -144,6 +155,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UtilityObject\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
