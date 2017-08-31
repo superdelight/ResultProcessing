@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RsManager_Version2", "RsManager_Version2\RsManager_Version2.csproj", "{52E7AA8A-FD53-46E4-AE4F-963006FCC8A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{41CA4985-F281-4527-A8D5-AE1E88785CCF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{EB8941A9-45FB-4747-94A2-5B3A73C0979B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Implementation", "Implementation", "{6D56197D-7AC3-4FA6-9690-3AAEBD5A4CF8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLogic", "BusinessLogic", "{B3EF060F-D449-40D9-9D8B-428E85B973FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{D5DDEDFB-9327-42EC-B74D-BE6C80728B11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{BCE60A28-5218-4F8D-833B-F2CD8374C86A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52E7AA8A-FD53-46E4-AE4F-963006FCC8A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52E7AA8A-FD53-46E4-AE4F-963006FCC8A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52E7AA8A-FD53-46E4-AE4F-963006FCC8A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52E7AA8A-FD53-46E4-AE4F-963006FCC8A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCE60A28-5218-4F8D-833B-F2CD8374C86A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCE60A28-5218-4F8D-833B-F2CD8374C86A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCE60A28-5218-4F8D-833B-F2CD8374C86A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCE60A28-5218-4F8D-833B-F2CD8374C86A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BCE60A28-5218-4F8D-833B-F2CD8374C86A} = {41CA4985-F281-4527-A8D5-AE1E88785CCF}
+	EndGlobalSection
+EndGlobal
