@@ -5,6 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ResultMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AvailabityStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="Course">
           <Key>
             <PropertyRef Name="Id" />
@@ -25,6 +32,13 @@
           <Property Name="FacId" Type="int" />
           <Property Name="IsVisible" Type="bit" />
           <Property Name="DateCreated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DisciplinaryStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Faculty">
           <Key>
@@ -131,13 +145,6 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="StandingVerificationStatus">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Description" Type="nvarchar(max)" />
-        </EntityType>
         <EntityType Name="Student">
           <Key>
             <PropertyRef Name="Id" />
@@ -167,9 +174,18 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="StudentId" Type="int" />
           <Property Name="ProgLevId" Type="int" />
-          <Property Name="VerificationStatus" Type="int" />
+          <Property Name="DisciplineStatus" Type="int" />
           <Property Name="SessionId" Type="int" />
           <Property Name="DateCreated" Type="datetime" />
+          <Property Name="PayStatus" Type="int" />
+          <Property Name="AvailStatus" Type="int" />
+        </EntityType>
+        <EntityType Name="StudentLevelPaymentStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatusDescription" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="StudentStatus">
           <Key>
@@ -334,6 +350,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_StudentLevel_AvailabityStatu">
+          <End Role="AvailabityStatu" Type="Self.AvailabityStatu" Multiplicity="0..1" />
+          <End Role="StudentLevel" Type="Self.StudentLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AvailabityStatu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentLevel">
+              <PropertyRef Name="AvailStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_StudentLevel_ProgrammeLevel">
           <End Role="ProgrammeLevel" Type="Self.ProgrammeLevel" Multiplicity="0..1" />
           <End Role="StudentLevel" Type="Self.StudentLevel" Multiplicity="*" />
@@ -343,18 +371,6 @@
             </Principal>
             <Dependent Role="StudentLevel">
               <PropertyRef Name="ProgLevId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_StudentLevel_ProgrammeLevel1">
-          <End Role="ProgrammeLevel" Type="Self.ProgrammeLevel" Multiplicity="0..1" />
-          <End Role="StudentLevel" Type="Self.StudentLevel" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ProgrammeLevel">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="StudentLevel">
-              <PropertyRef Name="StudentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -371,14 +387,14 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_StudentLevel_StandingVerificationStatus">
-          <End Role="StandingVerificationStatus" Type="Self.StandingVerificationStatus" Multiplicity="0..1" />
+          <End Role="DisciplinaryStatus" Type="Self.DisciplinaryStatus" Multiplicity="0..1" />
           <End Role="StudentLevel" Type="Self.StudentLevel" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="StandingVerificationStatus">
+            <Principal Role="DisciplinaryStatus">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="StudentLevel">
-              <PropertyRef Name="VerificationStatus" />
+              <PropertyRef Name="DisciplineStatus" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -394,9 +410,23 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_StudentLevel_StudentLevelPaymentStatu">
+          <End Role="StudentLevelPaymentStatu" Type="Self.StudentLevelPaymentStatu" Multiplicity="0..1" />
+          <End Role="StudentLevel" Type="Self.StudentLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentLevelPaymentStatu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentLevel">
+              <PropertyRef Name="PayStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ResultMModelStoreContainer">
+          <EntitySet Name="AvailabityStatu" EntityType="Self.AvailabityStatu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DisciplinaryStatus" EntityType="Self.DisciplinaryStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Faculty" EntityType="Self.Faculty" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Level" EntityType="Self.Level" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Programme" EntityType="Self.Programme" Schema="dbo" store:Type="Tables" />
@@ -407,9 +437,9 @@
           <EntitySet Name="Session" EntityType="Self.Session" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SessionSem" EntityType="Self.SessionSem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SessionStatu" EntityType="Self.SessionStatu" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="StandingVerificationStatus" EntityType="Self.StandingVerificationStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StudentLevel" EntityType="Self.StudentLevel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentLevelPaymentStatu" EntityType="Self.StudentLevelPaymentStatu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StudentStatus" EntityType="Self.StudentStatus" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Course_Department" Association="Self.FK_Course_Department">
             <End Role="Department" EntitySet="Department" />
@@ -463,11 +493,11 @@
             <End Role="StudentStatus" EntitySet="StudentStatus" />
             <End Role="Student" EntitySet="Student" />
           </AssociationSet>
-          <AssociationSet Name="FK_StudentLevel_ProgrammeLevel" Association="Self.FK_StudentLevel_ProgrammeLevel">
-            <End Role="ProgrammeLevel" EntitySet="ProgrammeLevel" />
+          <AssociationSet Name="FK_StudentLevel_AvailabityStatu" Association="Self.FK_StudentLevel_AvailabityStatu">
+            <End Role="AvailabityStatu" EntitySet="AvailabityStatu" />
             <End Role="StudentLevel" EntitySet="StudentLevel" />
           </AssociationSet>
-          <AssociationSet Name="FK_StudentLevel_ProgrammeLevel1" Association="Self.FK_StudentLevel_ProgrammeLevel1">
+          <AssociationSet Name="FK_StudentLevel_ProgrammeLevel" Association="Self.FK_StudentLevel_ProgrammeLevel">
             <End Role="ProgrammeLevel" EntitySet="ProgrammeLevel" />
             <End Role="StudentLevel" EntitySet="StudentLevel" />
           </AssociationSet>
@@ -476,11 +506,15 @@
             <End Role="StudentLevel" EntitySet="StudentLevel" />
           </AssociationSet>
           <AssociationSet Name="FK_StudentLevel_StandingVerificationStatus" Association="Self.FK_StudentLevel_StandingVerificationStatus">
-            <End Role="StandingVerificationStatus" EntitySet="StandingVerificationStatus" />
+            <End Role="DisciplinaryStatus" EntitySet="DisciplinaryStatus" />
             <End Role="StudentLevel" EntitySet="StudentLevel" />
           </AssociationSet>
           <AssociationSet Name="FK_StudentLevel_Student" Association="Self.FK_StudentLevel_Student">
             <End Role="Student" EntitySet="Student" />
+            <End Role="StudentLevel" EntitySet="StudentLevel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentLevel_StudentLevelPaymentStatu" Association="Self.FK_StudentLevel_StudentLevelPaymentStatu">
+            <End Role="StudentLevelPaymentStatu" EntitySet="StudentLevelPaymentStatu" />
             <End Role="StudentLevel" EntitySet="StudentLevel" />
           </AssociationSet>
         </EntityContainer>
@@ -560,8 +594,7 @@
           <NavigationProperty Name="Level" Relationship="Self.FK_ProgrammeLevel_Level" FromRole="ProgrammeLevel" ToRole="Level" />
           <NavigationProperty Name="Programme" Relationship="Self.FK_ProgrammeLevel_Programme" FromRole="ProgrammeLevel" ToRole="Programme" />
           <NavigationProperty Name="ProgrammeStatu" Relationship="Self.FK_ProgrammeLevel_ProgrammeStatus" FromRole="ProgrammeLevel" ToRole="ProgrammeStatus" />
-          <NavigationProperty Name="StudentLevels" Relationship="Self.FK_StudentLevel_ProgrammeLevel" FromRole="ProgrammeLevel" ToRole="StudentLevel" />
-          <NavigationProperty Name="StudentLevels1" Relationship="Self.FK_StudentLevel_ProgrammeLevel1" FromRole="ProgrammeLevel" ToRole="StudentLevel" />
+          <NavigationProperty Name="StudentLevels" Relationship="ResultMModel.FK_StudentLevel_ProgrammeLevel" FromRole="ProgrammeLevel" ToRole="StudentLevel" />
         </EntityType>
         <EntityType Name="ProgrammeStatu">
           <Key>
@@ -608,7 +641,7 @@
           <Property Name="Status" Type="Int32" />
           <NavigationProperty Name="SessionStatu" Relationship="Self.FK_Session_SessionStatu" FromRole="Session" ToRole="SessionStatu" />
           <NavigationProperty Name="SessionSems" Relationship="Self.FK_SessionSem_Session" FromRole="Session" ToRole="SessionSem" />
-          <NavigationProperty Name="StudentLevels" Relationship="Self.FK_StudentLevel_Session" FromRole="Session" ToRole="StudentLevel" />
+          <NavigationProperty Name="StudentLevels" Relationship="ResultMModel.FK_StudentLevel_Session" FromRole="Session" ToRole="StudentLevel" />
         </EntityType>
         <EntityType Name="SessionSem">
           <Key>
@@ -640,14 +673,6 @@
           <NavigationProperty Name="Sessions" Relationship="Self.FK_Session_SessionStatu" FromRole="SessionStatu" ToRole="Session" />
           <NavigationProperty Name="SessionSems" Relationship="Self.FK_SessionSem_SessionStatu" FromRole="SessionStatu" ToRole="SessionSem" />
         </EntityType>
-        <EntityType Name="StandingVerificationStatu">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="StudentLevels" Relationship="Self.FK_StudentLevel_StandingVerificationStatus" FromRole="StandingVerificationStatus" ToRole="StudentLevel" />
-        </EntityType>
         <EntityType Name="Student">
           <Key>
             <PropertyRef Name="Id" />
@@ -671,23 +696,7 @@
           <Property Name="DateCreated" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Programme" Relationship="Self.FK_Student_Programme" FromRole="Student" ToRole="Programme" />
           <NavigationProperty Name="StudentStatu" Relationship="Self.FK_Student_StudentStatus" FromRole="Student" ToRole="StudentStatus" />
-          <NavigationProperty Name="StudentLevels" Relationship="Self.FK_StudentLevel_Student" FromRole="Student" ToRole="StudentLevel" />
-        </EntityType>
-        <EntityType Name="StudentLevel">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="StudentId" Type="Int32" />
-          <Property Name="ProgLevId" Type="Int32" />
-          <Property Name="VerificationStatus" Type="Int32" />
-          <Property Name="SessionId" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="ProgrammeLevel" Relationship="Self.FK_StudentLevel_ProgrammeLevel" FromRole="StudentLevel" ToRole="ProgrammeLevel" />
-          <NavigationProperty Name="ProgrammeLevel1" Relationship="Self.FK_StudentLevel_ProgrammeLevel1" FromRole="StudentLevel" ToRole="ProgrammeLevel" />
-          <NavigationProperty Name="Session" Relationship="Self.FK_StudentLevel_Session" FromRole="StudentLevel" ToRole="Session" />
-          <NavigationProperty Name="StandingVerificationStatu" Relationship="Self.FK_StudentLevel_StandingVerificationStatus" FromRole="StudentLevel" ToRole="StandingVerificationStatus" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_StudentLevel_Student" FromRole="StudentLevel" ToRole="Student" />
+          <NavigationProperty Name="StudentLevels" Relationship="ResultMModel.FK_StudentLevel_Student" FromRole="Student" ToRole="StudentLevel" />
         </EntityType>
         <EntityType Name="StudentStatu">
           <Key>
@@ -793,30 +802,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_StudentLevel_ProgrammeLevel">
-          <End Role="ProgrammeLevel" Type="Self.ProgrammeLevel" Multiplicity="0..1" />
-          <End Role="StudentLevel" Type="Self.StudentLevel" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ProgrammeLevel">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="StudentLevel">
-              <PropertyRef Name="ProgLevId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_StudentLevel_ProgrammeLevel1">
-          <End Role="ProgrammeLevel" Type="Self.ProgrammeLevel" Multiplicity="0..1" />
-          <End Role="StudentLevel" Type="Self.StudentLevel" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ProgrammeLevel">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="StudentLevel">
-              <PropertyRef Name="StudentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_SessionSem_Semester">
           <End Role="Semester" Type="Self.Semester" Multiplicity="0..1" />
           <End Role="SessionSem" Type="Self.SessionSem" Multiplicity="*" />
@@ -853,18 +838,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_StudentLevel_Session">
-          <End Role="Session" Type="Self.Session" Multiplicity="0..1" />
-          <End Role="StudentLevel" Type="Self.StudentLevel" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Session">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="StudentLevel">
-              <PropertyRef Name="SessionId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_SessionSem_SessionStatu">
           <End Role="SessionStatu" Type="Self.SessionStatu" Multiplicity="0..1" />
           <End Role="SessionSem" Type="Self.SessionSem" Multiplicity="*" />
@@ -877,18 +850,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_StudentLevel_StandingVerificationStatus">
-          <End Role="StandingVerificationStatus" Type="Self.StandingVerificationStatu" Multiplicity="0..1" />
-          <End Role="StudentLevel" Type="Self.StudentLevel" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="StandingVerificationStatus">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="StudentLevel">
-              <PropertyRef Name="VerificationStatus" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Student_StudentStatus">
           <End Role="StudentStatus" Type="Self.StudentStatu" Multiplicity="0..1" />
           <End Role="Student" Type="Self.Student" Multiplicity="*" />
@@ -898,18 +859,6 @@
             </Principal>
             <Dependent Role="Student">
               <PropertyRef Name="Status" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_StudentLevel_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
-          <End Role="StudentLevel" Type="Self.StudentLevel" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Student">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="StudentLevel">
-              <PropertyRef Name="StudentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -926,9 +875,7 @@
           <EntitySet Name="Sessions" EntityType="Self.Session" />
           <EntitySet Name="SessionSems" EntityType="Self.SessionSem" />
           <EntitySet Name="SessionStatus" EntityType="Self.SessionStatu" />
-          <EntitySet Name="StandingVerificationStatus" EntityType="Self.StandingVerificationStatu" />
           <EntitySet Name="Students" EntityType="Self.Student" />
-          <EntitySet Name="StudentLevels" EntityType="Self.StudentLevel" />
           <EntitySet Name="StudentStatus" EntityType="Self.StudentStatu" />
           <AssociationSet Name="FK_Course_Department" Association="Self.FK_Course_Department">
             <End Role="Department" EntitySet="Departments" />
@@ -962,14 +909,6 @@
             <End Role="ProgrammeStatus" EntitySet="ProgrammeStatus" />
             <End Role="ProgrammeLevel" EntitySet="ProgrammeLevels" />
           </AssociationSet>
-          <AssociationSet Name="FK_StudentLevel_ProgrammeLevel" Association="Self.FK_StudentLevel_ProgrammeLevel">
-            <End Role="ProgrammeLevel" EntitySet="ProgrammeLevels" />
-            <End Role="StudentLevel" EntitySet="StudentLevels" />
-          </AssociationSet>
-          <AssociationSet Name="FK_StudentLevel_ProgrammeLevel1" Association="Self.FK_StudentLevel_ProgrammeLevel1">
-            <End Role="ProgrammeLevel" EntitySet="ProgrammeLevels" />
-            <End Role="StudentLevel" EntitySet="StudentLevels" />
-          </AssociationSet>
           <AssociationSet Name="FK_SessionSem_Semester" Association="Self.FK_SessionSem_Semester">
             <End Role="Semester" EntitySet="Semesters" />
             <End Role="SessionSem" EntitySet="SessionSems" />
@@ -982,27 +921,183 @@
             <End Role="Session" EntitySet="Sessions" />
             <End Role="SessionSem" EntitySet="SessionSems" />
           </AssociationSet>
-          <AssociationSet Name="FK_StudentLevel_Session" Association="Self.FK_StudentLevel_Session">
-            <End Role="Session" EntitySet="Sessions" />
-            <End Role="StudentLevel" EntitySet="StudentLevels" />
-          </AssociationSet>
           <AssociationSet Name="FK_SessionSem_SessionStatu" Association="Self.FK_SessionSem_SessionStatu">
             <End Role="SessionStatu" EntitySet="SessionStatus" />
             <End Role="SessionSem" EntitySet="SessionSems" />
-          </AssociationSet>
-          <AssociationSet Name="FK_StudentLevel_StandingVerificationStatus" Association="Self.FK_StudentLevel_StandingVerificationStatus">
-            <End Role="StandingVerificationStatus" EntitySet="StandingVerificationStatus" />
-            <End Role="StudentLevel" EntitySet="StudentLevels" />
           </AssociationSet>
           <AssociationSet Name="FK_Student_StudentStatus" Association="Self.FK_Student_StudentStatus">
             <End Role="StudentStatus" EntitySet="StudentStatus" />
             <End Role="Student" EntitySet="Students" />
           </AssociationSet>
-          <AssociationSet Name="FK_StudentLevel_Student" Association="Self.FK_StudentLevel_Student">
+          <EntitySet Name="AvailabityStatus" EntityType="ResultMModel.AvailabityStatu" />
+          <EntitySet Name="DisciplinaryStatus" EntityType="ResultMModel.DisciplinaryStatu" />
+          <EntitySet Name="StudentLevelPaymentStatus" EntityType="ResultMModel.StudentLevelPaymentStatu" />
+          <EntitySet Name="StudentLevels" EntityType="ResultMModel.StudentLevel" />
+          <AssociationSet Name="FK_StudentLevel_AvailabityStatu" Association="ResultMModel.FK_StudentLevel_AvailabityStatu">
+            <End Role="AvailabityStatu" EntitySet="AvailabityStatus" />
+            <End Role="StudentLevel" EntitySet="StudentLevels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentLevel_StandingVerificationStatus" Association="ResultMModel.FK_StudentLevel_StandingVerificationStatus">
+            <End Role="DisciplinaryStatu" EntitySet="DisciplinaryStatus" />
+            <End Role="StudentLevel" EntitySet="StudentLevels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentLevel_ProgrammeLevel" Association="ResultMModel.FK_StudentLevel_ProgrammeLevel">
+            <End Role="ProgrammeLevel" EntitySet="ProgrammeLevels" />
+            <End Role="StudentLevel" EntitySet="StudentLevels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentLevel_Session" Association="ResultMModel.FK_StudentLevel_Session">
+            <End Role="Session" EntitySet="Sessions" />
+            <End Role="StudentLevel" EntitySet="StudentLevels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentLevel_Student" Association="ResultMModel.FK_StudentLevel_Student">
             <End Role="Student" EntitySet="Students" />
             <End Role="StudentLevel" EntitySet="StudentLevels" />
           </AssociationSet>
-        </EntityContainer>
+          <AssociationSet Name="FK_StudentLevel_StudentLevelPaymentStatu" Association="ResultMModel.FK_StudentLevel_StudentLevelPaymentStatu">
+            <End Role="StudentLevelPaymentStatu" EntitySet="StudentLevelPaymentStatus" />
+            <End Role="StudentLevel" EntitySet="StudentLevels" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="AvailabityStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="StudentLevels" Relationship="ResultMModel.FK_StudentLevel_AvailabityStatu" FromRole="AvailabityStatu" ToRole="StudentLevel" />
+        </EntityType>
+        <EntityType Name="DisciplinaryStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="StudentLevels" Relationship="ResultMModel.FK_StudentLevel_StandingVerificationStatus" FromRole="DisciplinaryStatu" ToRole="StudentLevel" />
+        </EntityType>
+        <EntityType Name="StudentLevelPaymentStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatusDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="StudentLevels" Relationship="ResultMModel.FK_StudentLevel_StudentLevelPaymentStatu" FromRole="StudentLevelPaymentStatu" ToRole="StudentLevel" />
+        </EntityType>
+        <EnumType Name="StudentLevelPaymentStatusEnum">
+          <Member Name="Full_Payment_Outstanding" Value="1" />
+          <Member Name="Part_Payment_Paid" Value="2" />
+          <Member Name="Balance_Payment_Outstanding" Value="3" />
+          <Member Name="Full_Payment_Paid" Value="4" />
+          <Member Name="Late_Payment_Outstanding" Value="5" />
+          <Member Name="Late_Payment_Paid" Value="6" />
+          <Member Name="Other_Payment_Outstanding" Value="7" />
+          <Member Name="Other_Payment_Paid" Value="8" />
+        </EnumType>
+        <EnumType Name="DisciplinaryStatusEnum">
+          <Member Name="Suspension" Value="1" />
+          <Member Name="Rustication" Value="2" />
+          <Member Name="Good_Standing" Value="3" />
+        </EnumType>
+        <EnumType Name="AvailabityStatusEnum">
+          <Member Name="Active_Undergraduate" Value="1" />
+          <Member Name="Disabled" Value="2" />
+          <Member Name="Sick" Value="3" />
+          <Member Name="Leave" Value="4" />
+          <Member Name="Deceased" Value="5" />
+          <Member Name="Withdrawn" Value="6" />
+          <Member Name="Graduated" Value="7" />
+          <Member Name="Active_Spill" Value="8" />
+        </EnumType>
+        <EntityType Name="StudentLevel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentId" Type="Int32" />
+          <Property Name="ProgLevId" Type="Int32" />
+          <Property Name="DisciplineStatus" Type="Int32" />
+          <Property Name="SessionId" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="PayStatus" Type="Int32" />
+          <Property Name="AvailStatus" Type="Int32" />
+          <NavigationProperty Name="AvailabityStatu" Relationship="ResultMModel.FK_StudentLevel_AvailabityStatu" FromRole="StudentLevel" ToRole="AvailabityStatu" />
+          <NavigationProperty Name="DisciplinaryStatu" Relationship="ResultMModel.FK_StudentLevel_StandingVerificationStatus" FromRole="StudentLevel" ToRole="DisciplinaryStatu" />
+          <NavigationProperty Name="ProgrammeLevel" Relationship="ResultMModel.FK_StudentLevel_ProgrammeLevel" FromRole="StudentLevel" ToRole="ProgrammeLevel" />
+          <NavigationProperty Name="Session" Relationship="ResultMModel.FK_StudentLevel_Session" FromRole="StudentLevel" ToRole="Session" />
+          <NavigationProperty Name="Student" Relationship="ResultMModel.FK_StudentLevel_Student" FromRole="StudentLevel" ToRole="Student" />
+          <NavigationProperty Name="StudentLevelPaymentStatu" Relationship="ResultMModel.FK_StudentLevel_StudentLevelPaymentStatu" FromRole="StudentLevel" ToRole="StudentLevelPaymentStatu" />
+        </EntityType>
+        <Association Name="FK_StudentLevel_AvailabityStatu">
+          <End Type="ResultMModel.AvailabityStatu" Role="AvailabityStatu" Multiplicity="0..1" />
+          <End Type="ResultMModel.StudentLevel" Role="StudentLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AvailabityStatu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentLevel">
+              <PropertyRef Name="AvailStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentLevel_StandingVerificationStatus">
+          <End Type="ResultMModel.DisciplinaryStatu" Role="DisciplinaryStatu" Multiplicity="0..1" />
+          <End Type="ResultMModel.StudentLevel" Role="StudentLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DisciplinaryStatu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentLevel">
+              <PropertyRef Name="DisciplineStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentLevel_ProgrammeLevel">
+          <End Type="ResultMModel.ProgrammeLevel" Role="ProgrammeLevel" Multiplicity="0..1" />
+          <End Type="ResultMModel.StudentLevel" Role="StudentLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProgrammeLevel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentLevel">
+              <PropertyRef Name="ProgLevId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentLevel_Session">
+          <End Type="ResultMModel.Session" Role="Session" Multiplicity="0..1" />
+          <End Type="ResultMModel.StudentLevel" Role="StudentLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentLevel">
+              <PropertyRef Name="SessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentLevel_Student">
+          <End Type="ResultMModel.Student" Role="Student" Multiplicity="0..1" />
+          <End Type="ResultMModel.StudentLevel" Role="StudentLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentLevel">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentLevel_StudentLevelPaymentStatu">
+          <End Type="ResultMModel.StudentLevelPaymentStatu" Role="StudentLevelPaymentStatu" Multiplicity="0..1" />
+          <End Type="ResultMModel.StudentLevel" Role="StudentLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentLevelPaymentStatu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentLevel">
+              <PropertyRef Name="PayStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1147,14 +1242,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="StandingVerificationStatus">
-            <EntityTypeMapping TypeName="ResultMModel.StandingVerificationStatu">
-              <MappingFragment StoreEntitySet="StandingVerificationStatus">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Students">
             <EntityTypeMapping TypeName="ResultMModel.Student">
               <MappingFragment StoreEntitySet="Student">
@@ -1178,23 +1265,49 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="StudentLevels">
-            <EntityTypeMapping TypeName="ResultMModel.StudentLevel">
-              <MappingFragment StoreEntitySet="StudentLevel">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
-                <ScalarProperty Name="ProgLevId" ColumnName="ProgLevId" />
-                <ScalarProperty Name="VerificationStatus" ColumnName="VerificationStatus" />
-                <ScalarProperty Name="SessionId" ColumnName="SessionId" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="StudentStatus">
             <EntityTypeMapping TypeName="ResultMModel.StudentStatu">
               <MappingFragment StoreEntitySet="StudentStatus">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AvailabityStatus">
+            <EntityTypeMapping TypeName="ResultMModel.AvailabityStatu">
+              <MappingFragment StoreEntitySet="AvailabityStatu">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DisciplinaryStatus">
+            <EntityTypeMapping TypeName="ResultMModel.DisciplinaryStatu">
+              <MappingFragment StoreEntitySet="DisciplinaryStatus">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentLevelPaymentStatus">
+            <EntityTypeMapping TypeName="ResultMModel.StudentLevelPaymentStatu">
+              <MappingFragment StoreEntitySet="StudentLevelPaymentStatu">
+                <ScalarProperty Name="StatusDescription" ColumnName="StatusDescription" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentLevels">
+            <EntityTypeMapping TypeName="ResultMModel.StudentLevel">
+              <MappingFragment StoreEntitySet="StudentLevel">
+                <ScalarProperty Name="AvailStatus" ColumnName="AvailStatus" />
+                <ScalarProperty Name="PayStatus" ColumnName="PayStatus" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+                <ScalarProperty Name="DisciplineStatus" ColumnName="DisciplineStatus" />
+                <ScalarProperty Name="ProgLevId" ColumnName="ProgLevId" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -14,7 +14,12 @@ namespace DAL.Repository.Implementation
         {
             SchoolContext = new SchoolRepository(Context);
             FacultyContext = new FacultyRepository(Context);
+            CourseContext = new CourseRepository(Context);
         }
+
+        public ICourseRepository CourseContext { get; private set; } 
+       
+
         public IFacultyRepository FacultyContext { get; private set; }      
         public ISchoolRepository SchoolContext { get; private set;}
         public void Dispose()

@@ -12,10 +12,10 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class StandingVerificationStatu
+    public partial class DisciplinaryStatu
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public StandingVerificationStatu()
+        public DisciplinaryStatu()
         {
             this.StudentLevels = new HashSet<StudentLevel>();
         }

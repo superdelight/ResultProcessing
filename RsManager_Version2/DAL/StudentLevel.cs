@@ -17,14 +17,17 @@ namespace DAL
         public int Id { get; set; }
         public Nullable<int> StudentId { get; set; }
         public Nullable<int> ProgLevId { get; set; }
-        public Nullable<int> VerificationStatus { get; set; }
+        public Nullable<int> DisciplineStatus { get; set; }
         public Nullable<int> SessionId { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
+        public Nullable<int> PayStatus { get; set; }
+        public Nullable<int> AvailStatus { get; set; }
     
+        public virtual AvailabityStatu AvailabityStatu { get; set; }
+        public virtual DisciplinaryStatu DisciplinaryStatu { get; set; }
         public virtual ProgrammeLevel ProgrammeLevel { get; set; }
-        public virtual ProgrammeLevel ProgrammeLevel1 { get; set; }
         public virtual Session Session { get; set; }
-        public virtual StandingVerificationStatu StandingVerificationStatu { get; set; }
         public virtual Student Student { get; set; }
+        public virtual StudentLevelPaymentStatu StudentLevelPaymentStatu { get; set; }
     }
 }

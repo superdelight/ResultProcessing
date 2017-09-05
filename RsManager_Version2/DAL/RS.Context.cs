@@ -37,9 +37,11 @@ namespace DAL
         public virtual DbSet<Session> Sessions { get; set; }
         public virtual DbSet<SessionSem> SessionSems { get; set; }
         public virtual DbSet<SessionStatu> SessionStatus { get; set; }
-        public virtual DbSet<StandingVerificationStatu> StandingVerificationStatus { get; set; }
         public virtual DbSet<Student> Students { get; set; }
-        public virtual DbSet<StudentLevel> StudentLevels { get; set; }
         public virtual DbSet<StudentStatu> StudentStatus { get; set; }
+        public virtual DbSet<AvailabityStatu> AvailabityStatus { get; set; }
+        public virtual DbSet<DisciplinaryStatu> DisciplinaryStatus { get; set; }
+        public virtual DbSet<StudentLevelPaymentStatu> StudentLevelPaymentStatus { get; set; }
+        public virtual DbSet<StudentLevel> StudentLevels { get; set; }
     }
 }

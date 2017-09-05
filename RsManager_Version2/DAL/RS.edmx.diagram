@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2450d41831a048b9b3e33629e36efac1" Name="Diagram1">
+      <Diagram DiagramId="2450d41831a048b9b3e33629e36efac1" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="ResultMModel.Course" Width="1.5" PointX="3.75" PointY="18.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ResultMModel.Department" Width="1.5" PointX="1.5" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ResultMModel.Faculty" Width="1.5" PointX="1.5" PointY="16.125" IsExpanded="true" />
@@ -16,10 +16,8 @@
         <EntityTypeShape EntityType="ResultMModel.Semester" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ResultMModel.Session" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ResultMModel.SessionSem" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ResultMModel.SessionStatu" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ResultMModel.StandingVerificationStatu" Width="1.5" PointX="6" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.SessionStatu" Width="1.5" PointX="0.625" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ResultMModel.Student" Width="1.5" PointX="6" PointY="20" IsExpanded="true" />
-        <EntityTypeShape EntityType="ResultMModel.StudentLevel" Width="1.5" PointX="8.25" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="ResultMModel.StudentStatu" Width="1.5" PointX="3.75" PointY="21.625" IsExpanded="true" />
         <AssociationConnector Association="ResultMModel.FK_Course_Department" ManuallyRouted="false" />
         <AssociationConnector Association="ResultMModel.FK_Department_Faculty" ManuallyRouted="false" />
@@ -29,16 +27,21 @@
         <AssociationConnector Association="ResultMModel.FK_ProgrammeLevel_Programme" ManuallyRouted="false" />
         <AssociationConnector Association="ResultMModel.FK_Student_Programme" ManuallyRouted="false" />
         <AssociationConnector Association="ResultMModel.FK_ProgrammeLevel_ProgrammeStatus" ManuallyRouted="false" />
-        <AssociationConnector Association="ResultMModel.FK_StudentLevel_ProgrammeLevel" ManuallyRouted="false" />
-        <AssociationConnector Association="ResultMModel.FK_StudentLevel_ProgrammeLevel1" ManuallyRouted="false" />
         <AssociationConnector Association="ResultMModel.FK_SessionSem_Semester" ManuallyRouted="false" />
         <AssociationConnector Association="ResultMModel.FK_Session_SessionStatu" ManuallyRouted="false" />
         <AssociationConnector Association="ResultMModel.FK_SessionSem_Session" ManuallyRouted="false" />
-        <AssociationConnector Association="ResultMModel.FK_StudentLevel_Session" ManuallyRouted="false" />
         <AssociationConnector Association="ResultMModel.FK_SessionSem_SessionStatu" ManuallyRouted="false" />
-        <AssociationConnector Association="ResultMModel.FK_StudentLevel_StandingVerificationStatus" ManuallyRouted="false" />
         <AssociationConnector Association="ResultMModel.FK_Student_StudentStatus" ManuallyRouted="false" />
-        <AssociationConnector Association="ResultMModel.FK_StudentLevel_Student" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ResultMModel.AvailabityStatu" Width="1.5" PointX="6" PointY="26.5" />
+        <EntityTypeShape EntityType="ResultMModel.DisciplinaryStatu" Width="1.5" PointX="6" PointY="9.125" />
+        <EntityTypeShape EntityType="ResultMModel.StudentLevelPaymentStatu" Width="2.5" PointX="5.375" PointY="0.875" />
+        <EntityTypeShape EntityType="ResultMModel.StudentLevel" Width="1.5" PointX="8.625" PointY="12.625" />
+        <AssociationConnector Association="ResultMModel.FK_StudentLevel_AvailabityStatu" />
+        <AssociationConnector Association="ResultMModel.FK_StudentLevel_StandingVerificationStatus" />
+        <AssociationConnector Association="ResultMModel.FK_StudentLevel_ProgrammeLevel" />
+        <AssociationConnector Association="ResultMModel.FK_StudentLevel_Session" />
+        <AssociationConnector Association="ResultMModel.FK_StudentLevel_Student" />
+        <AssociationConnector Association="ResultMModel.FK_StudentLevel_StudentLevelPaymentStatu" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

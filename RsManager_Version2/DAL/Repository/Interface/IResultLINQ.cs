@@ -10,6 +10,7 @@ namespace DAL.Repository.Interface
     {
         ISchoolRepository SchoolContext { get;}
         IFacultyRepository FacultyContext { get; }
+        ICourseRepository CourseContext { get; }
         int SaveChanges();
     }
 }

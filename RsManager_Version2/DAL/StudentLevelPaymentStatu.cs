@@ -12,24 +12,17 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class ProgrammeLevel
+    public partial class StudentLevelPaymentStatu
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ProgrammeLevel()
+        public StudentLevelPaymentStatu()
         {
             this.StudentLevels = new HashSet<StudentLevel>();
         }
     
         public int Id { get; set; }
-        public string ProgrammeDescription { get; set; }
-        public Nullable<int> ProgId { get; set; }
-        public Nullable<int> LevId { get; set; }
-        public Nullable<int> Status { get; set; }
-        public Nullable<System.DateTime> DateCreated { get; set; }
+        public string StatusDescription { get; set; }
     
-        public virtual Level Level { get; set; }
-        public virtual Programme Programme { get; set; }
-        public virtual ProgrammeStatu ProgrammeStatu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentLevel> StudentLevels { get; set; }
     }
