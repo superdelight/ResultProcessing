@@ -9,12 +9,13 @@ namespace DAL.Repository.Implementation
 {
     public class ResultLINQ:IResultLINQ
     {
-           private readonly ResultMEntities Context;
-        public ResultLINQ(ResultMEntities Context)
+           private readonly ResultMEntities _Context;
+        public ResultLINQ()
         {
-            SchoolContext = new SchoolRepository(Context);
-            FacultyContext = new FacultyRepository(Context);
-            CourseContext = new CourseRepository(Context);
+            _Context = new DAL.ResultMEntities();
+            SchoolContext = new SchoolRepository(_Context);
+            FacultyContext = new FacultyRepository(_Context);
+            CourseContext = new CourseRepository(_Context);
         }
 
         public ICourseRepository CourseContext { get; private set; } 
@@ -24,14 +25,14 @@ namespace DAL.Repository.Implementation
         public ISchoolRepository SchoolContext { get; private set;}
         public void Dispose()
         {
-            Context.Dispose();
+            _Context.Dispose();
         }
 
         public int SaveChanges()
         {
             try
             {
-                return Context.SaveChanges();
+                return _Context.SaveChanges();
             }
             catch
             {
