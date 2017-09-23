@@ -1,6 +1,7 @@
 ﻿using DAL.Repository.Interface;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,8 +10,8 @@ namespace DAL.Repository.Implementation
 {
     public class FacultyRepository : Repository<Faculty>, IFacultyRepository
     {
-        private DAL.ResultMEntities Context;
-        public FacultyRepository(DAL.ResultMEntities Context)
+        private DbContext Context;
+        public FacultyRepository(DbContext Context)
             : base(Context)
         {
             this.Context = Context;
@@ -18,18 +19,25 @@ namespace DAL.Repository.Implementation
 
         public bool ConfirmFactulty(string facName, string facCode)
         {
-            return Context.Faculties.Where(c => c.FacName.ToLower().Equals(facName.ToLower()) ||
-            c.FacAcronyms.ToLower().Equals(facCode.ToLower())).Any();
+            try
+            {
+                return Context.Set<Faculty>().Where(c => c.FacName.ToLower().Equals(facName.ToLower()) ||
+                 c.FacAcronyms.ToLower().Equals(facCode.ToLower())).Any();
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
         }
    
         public Faculty GetFacultyByCode(string code)
         {
-            return Context.Faculties.Where(c => c.FacAcronyms.ToLower().Equals(code.ToLower())).FirstOrDefault();
+            return Context.Set<Faculty>().Where(c => c.FacAcronyms.ToLower().Equals(code.ToLower())).FirstOrDefault();
         }
 
         public Faculty GetFacultyByName(string facName)
         {
-            return Context.Faculties.Where(c => c.FacName.ToLower().Equals(facName.ToLower())).FirstOrDefault();
+            return Context.Set<Faculty>().Where(c => c.FacName.ToLower().Equals(facName.ToLower())).FirstOrDefault();
         }
 
      

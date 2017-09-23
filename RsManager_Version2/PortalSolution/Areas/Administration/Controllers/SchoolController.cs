@@ -1,6 +1,7 @@
 ﻿using DAL;
 using PortalSolution.Areas.Administration.Models;
 using ResultBusinessLogic.Implementation;
+using ResultBusinessLogic.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,27 @@ namespace PortalSolution.Areas.Administration
         {
             return View();
         }
+        public ActionResult CreateSchool()
+        {
+            return View();
+        }
+        [HttpPost]
         public ActionResult CreateSchool(SchoolMDV schoolModel)
         {
-            SystemSpecificRules bll = new SystemSpecificRules();
+            ViewBag.Message = null;
+            ViewBag.Signal = null;
+          SystemSpecificRules bll = new SystemSpecificRules();
             School school = new School() { DateCreated = DateTime.Now, SchoolName = schoolModel.SchoolDescription, IsVisible = schoolModel.IsActive };
-            ViewBag.Msg=bll.CreateSchool(school);
+           var reply= bll.CreateSchool(school);
+            ViewBag.Message = reply.Message;
+            if (reply.Response==ResponseCode.OK)
+            {
+                ViewBag.Signal = "success";
+            }
+            else
+            {
+                ViewBag.Signal = "error";
+            }
             return View();
         }
     }

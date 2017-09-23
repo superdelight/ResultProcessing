@@ -16,5 +16,7 @@ namespace ResultBusinessLogic.Interface
         BusinessMessage<List<Faculty>> CreateFaculty(Faculty faculty);
         BusinessMessage<int> CreateSingleFaculty(Faculty faculty);
         List<Faculty> GetAllFaculties();
+        List<Department> GetAllDepartments(int facId);
+        BusinessMessage<List<Department>> CreateDepartment(Department dept);
     }
 }

@@ -40,7 +40,11 @@ namespace DAL.Repository.Implementation
 
         public School GetActiveSchool()
         {
-            return Context.Set<School>().Where(d => d.IsVisible == true).FirstOrDefault();
+            try
+            {
+                return Context.Set<School>().Where(d => d.IsVisible == true).FirstOrDefault();
+            }
+            catch { return null; }
         }
 
         public School GetSchoolByName(string schoolName)

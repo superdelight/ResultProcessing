@@ -1,7 +1,86 @@
-﻿
+﻿@model PortalSolution.Areas.Administration.Models.SchoolMDV
 @{
-    ViewBag.Title = "CreateSchool";
+    ViewBag.Title = "Solution";
+    Layout = null;
 }
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/backofficedemo.css" rel="stylesheet" />
+<link href="~/Content/kycCSS.css" rel="stylesheet" />
 
-<h2>CreateSchool</h2>
 
+<html>
+<head>
+</head>
+<body style="background-color:white">
+    <div class="tim-row" id="inputs-row">
+        <h3>Create KYC Customer</h3>
+        <div class="col-md-8">
+            <div class="col-md-12">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#">KYC Manager</a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="#">Create Customer</a></li>
+                                <li><a href="#">Proceed</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="col-md-6 col-md-offset-3">
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    if (@ViewBag.Signal == "error")
+    {
+        <div style="font-family:Arial, Helvetica, sans-serif; font-size:small;color:red">
+            <b>Error:</b>@ViewBag.Message
+        </div>
+    }
+    else if (@ViewBag.Signal == "success")
+    {
+        <div style="font-family:Arial, Helvetica, sans-serif; font-size:small;color:green">
+
+            <b>Success:</b>@ViewBag.Message
+        </div>
+    }
+
+            <div class="form-group label-floating">
+
+                <label class="control-label">Description</label>
+                @Html.EditorFor(model => model.SchoolDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SchoolDescription, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    @Html.CheckBoxFor(model => model.IsActive)
+                    @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                    Activate
+                    @*@Html.CheckBoxFor(Model.IsActive=>)*@
+                </label>
+            </div>
+            <div class="col-md-12" style="text-align:left">
+                <button class="btn btn-primary">Create</button>
+            </div>
+            }
+        </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="~/Scripts/jquery.min.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/backoffice-kit.js"></script>
+<script src="~/Scripts/backoffice.min.js"></script>

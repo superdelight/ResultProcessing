@@ -7,6 +7,7 @@ namespace PortalSolution.Areas.Administration.Models
 {
     public class SchoolMDV
     {
+        public int Id { get; set; }
         public string SchoolDescription { get; set; }
         public bool IsActive { get; set; }
     }

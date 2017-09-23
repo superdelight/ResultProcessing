@@ -6,17 +6,17 @@
     <edmx:Diagrams>
       <Diagram DiagramId="2450d41831a048b9b3e33629e36efac1" Name="Diagram1" ZoomLevel="100">
         <EntityTypeShape EntityType="ResultMModel.Course" Width="1.5" PointX="3.75" PointY="18.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ResultMModel.Department" Width="1.5" PointX="1.5" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.Department" Width="1.5" PointX="0.5" PointY="11.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ResultMModel.Faculty" Width="1.5" PointX="1.5" PointY="16.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ResultMModel.Level" Width="1.5" PointX="3.75" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ResultMModel.Programme" Width="1.5" PointX="3.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ResultMModel.ProgrammeLevel" Width="1.5" PointX="6" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ResultMModel.ProgrammeStatu" Width="1.5" PointX="3.75" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.Programme" Width="1.5" PointX="2.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.ProgrammeLevel" Width="1.875" PointX="6" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.ProgrammeStatu" Width="1.875" PointX="3.75" PointY="15.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ResultMModel.School" Width="1.5" PointX="1.5" PointY="20" IsExpanded="true" />
         <EntityTypeShape EntityType="ResultMModel.Semester" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ResultMModel.Session" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.Session" Width="1.5" PointX="1.375" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ResultMModel.SessionSem" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ResultMModel.SessionStatu" Width="1.5" PointX="0.625" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.SessionStatu" Width="1.5" PointX="9.125" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ResultMModel.Student" Width="1.5" PointX="11.125" PointY="17.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ResultMModel.StudentStatu" Width="1.5" PointX="4" PointY="21.25" IsExpanded="true" />
         <AssociationConnector Association="ResultMModel.FK_Course_Department" ManuallyRouted="false" />
@@ -33,8 +33,8 @@
         <AssociationConnector Association="ResultMModel.FK_SessionSem_SessionStatu" ManuallyRouted="false" />
         <AssociationConnector Association="ResultMModel.FK_Student_StudentStatus" ManuallyRouted="false" />
         <EntityTypeShape EntityType="ResultMModel.AvailabityStatu" Width="1.5" PointX="6" PointY="26.5" />
-        <EntityTypeShape EntityType="ResultMModel.DisciplinaryStatu" Width="1.5" PointX="6" PointY="9.125" />
-        <EntityTypeShape EntityType="ResultMModel.StudentLevelPaymentStatu" Width="2.5" PointX="5.375" PointY="0.875" />
+        <EntityTypeShape EntityType="ResultMModel.DisciplinaryStatu" Width="1.875" PointX="6" PointY="9.125" />
+        <EntityTypeShape EntityType="ResultMModel.StudentLevelPaymentStatu" Width="2.5" PointX="7.625" PointY="0.5" />
         <EntityTypeShape EntityType="ResultMModel.StudentLevel" Width="1.5" PointX="8.625" PointY="12.625" />
         <AssociationConnector Association="ResultMModel.FK_StudentLevel_AvailabityStatu" />
         <AssociationConnector Association="ResultMModel.FK_StudentLevel_StandingVerificationStatus" />
