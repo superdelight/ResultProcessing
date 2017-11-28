@@ -26,7 +26,6 @@ namespace DAL
         public string Othername { get; set; }
         public string Gender { get; set; }
         public string Address { get; set; }
-        public string LGA { get; set; }
         public string StateofOrigin { get; set; }
         public string PhoneNumber { get; set; }
         public Nullable<int> YearofAdmission { get; set; }
@@ -37,10 +36,20 @@ namespace DAL
         public Nullable<int> ProgrammeId { get; set; }
         public Nullable<int> Status { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
+        public int CentreId { get; set; }
+        public int LGAId { get; set; }
+        public string Picture { get; set; }
+        public string Signature { get; set; }
+        public System.DateTime DOB { get; set; }
+        public string PlaceofBirth { get; set; }
+        public string Genotype { get; set; }
+        public string BloodGroup { get; set; }
     
         public virtual Programme Programme { get; set; }
         public virtual StudentStatu StudentStatu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentLevel> StudentLevels { get; set; }
+        public virtual Centre Centre { get; set; }
+        public virtual LGA LGA1 { get; set; }
     }
 }

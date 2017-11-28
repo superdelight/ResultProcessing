@@ -607,9 +607,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\DepartmentController.cs" />
     <Compile Include="Areas\Administration\Controllers\FacultyController.cs" />
     <Compile Include="Areas\Administration\Controllers\SchController.cs" />
+    <Compile Include="Areas\Administration\Models\DepartmentMDV.cs" />
     <Compile Include="Areas\Administration\Models\FacultyMDV.cs" />
+    <Compile Include="Areas\Administration\Controllers\ProgrammeController.cs" />
+    <Compile Include="Areas\Administration\Models\ProgrammeDMV.cs" />
     <Compile Include="Areas\Administration\Models\SchoolMDV.cs" />
     <Compile Include="Areas\Administration\Controllers\SchoolController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -992,6 +996,10 @@
     <Content Include="Areas\Administration\Views\Faculty\ViewAllFaculties.cshtml" />
     <Content Include="Areas\Administration\Views\Faculty\_ViewFaculties.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_ViewAllFac.cshtml" />
+    <Content Include="Areas\Administration\Views\Department\CreateNewDepartment.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\_ViewAllDept.cshtml" />
+    <Content Include="Areas\Administration\Views\Programme\CreateProgramme.cshtml" />
+    <Content Include="Areas\Administration\Views\Programme\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

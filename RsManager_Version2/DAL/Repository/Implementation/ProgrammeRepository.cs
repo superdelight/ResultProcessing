@@ -25,6 +25,10 @@ namespace DAL.Repository.Implementation
         {
             return Context.Set<Programme>().Where(x => x.deptId == deptId).ToList();
         }
+        public IEnumerable<Programme> GetAllProgrammeByFaculty(int facId)
+        {
+            return Context.Set<Programme>().Where(x => x.Department.FacId == facId).ToList();
+        }
         public Programme GetProgramme(string programCode, string programDes)
         {
             return Context.Set<Programme>().Where(c => c.ProgrammeCode.ToLower().Equals(programCode.ToLower()) ||

@@ -11,6 +11,7 @@ namespace DAL.Repository.Interface
 
         bool ConfirmProgramme(string programCode, string programDes);
         Programme GetProgramme(string programCode, string programDes);
+        IEnumerable<Programme> GetAllProgrammeByFaculty(int facId);
         IEnumerable<Programme> GetAllProgramme(int deptId);
 
     }

@@ -14,6 +14,12 @@ namespace DAL
     
     public partial class SessionSem
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public SessionSem()
+        {
+            this.Registrations = new HashSet<Registration>();
+        }
+    
         public int Id { get; set; }
         public string Description { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
@@ -31,5 +37,7 @@ namespace DAL
         public virtual Semester Semester { get; set; }
         public virtual Session Session { get; set; }
         public virtual SessionStatu SessionStatu { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Registration> Registrations { get; set; }
     }
 }

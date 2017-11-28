@@ -14,6 +14,12 @@ namespace DAL
     
     public partial class Course
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Course()
+        {
+            this.RequiredCourses = new HashSet<RequiredCourse>();
+        }
+    
         public int Id { get; set; }
         public string CourseCode { get; set; }
         public string CourseTitle { get; set; }
@@ -21,5 +27,7 @@ namespace DAL
         public Nullable<System.DateTime> DateCreated { get; set; }
     
         public virtual Department Department { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RequiredCourse> RequiredCourses { get; set; }
     }
 }

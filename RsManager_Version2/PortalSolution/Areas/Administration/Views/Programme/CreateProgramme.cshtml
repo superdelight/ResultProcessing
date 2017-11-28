@@ -1,0 +1,91 @@
+﻿@model PortalSolution.Areas.Administration.Models.ProgrammeDMV
+@{
+    ViewBag.Title = "Solution";
+    Layout = null;
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/backofficedemo.css" rel="stylesheet" />
+<link href="~/Content/kycCSS.css" rel="stylesheet" />
+
+
+<html>
+<head>
+</head>
+<body style="background-color:white">
+    <div class="tim-row" id="inputs-row">
+        <h3>Create KYC Customer</h3>
+        <div class="col-md-8">
+            <div class="col-md-12">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#">School Manager</a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="#">Create Programme</a></li>
+                                <li><a href="#">Proceed</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="col-md-6 col-md-offset-3">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        if (@ViewBag.flag == 0)
+                        {
+                            <div style="font-family:Arial, Helvetica, sans-serif; font-size:small;color:red">
+                                <b>Error:</b>@ViewBag.msg
+                            </div>
+                        }
+                        else if (@ViewBag.flag == 1)
+                        {
+                            <div style="font-family:Arial, Helvetica, sans-serif; font-size:small;color:green">
+
+                                <b>Success:</b>@ViewBag.msg
+                            </div>
+                        }
+                        <div class="form-control">
+
+                            @*<label class="control-label">Department</label>*@
+                            <div class="col-md-12 dropdown">
+                            @Html.DropDownListFor(model => model.DeptId,Model.Departments, new { htmlAttributes = new { @class = "form-control" } })
+         
+                        </div>
+
+                            </div>
+                        <div class="form-group label-floating">
+
+                            <label class="control-label">Programme Acronyms</label>
+                            @Html.EditorFor(model => model.ProgrammeCode, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ProgrammeCode, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group label-floating">
+
+                            <label class="control-label">Programme Description</label>
+                            @Html.EditorFor(model => model.ProgrammeDescription, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ProgrammeDescription, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-12" style="text-align:left">
+                            <button class="btn btn-primary">Create</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="~/Scripts/jquery.min.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/backoffice-kit.js"></script>
+<script src="~/Scripts/backoffice.min.js"></script>

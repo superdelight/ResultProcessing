@@ -18,6 +18,7 @@ namespace DAL
         public Semester()
         {
             this.SessionSems = new HashSet<SessionSem>();
+            this.Requirements = new HashSet<Requirement>();
         }
     
         public int Id { get; set; }
@@ -25,5 +26,7 @@ namespace DAL
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SessionSem> SessionSems { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Requirement> Requirements { get; set; }
     }
 }

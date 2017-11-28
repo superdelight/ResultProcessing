@@ -17,13 +17,13 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Level()
         {
-            this.ProgrammeLevels = new HashSet<ProgrammeLevel>();
+            this.AwardLevels = new HashSet<AwardLevel>();
         }
     
         public int Id { get; set; }
         public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProgrammeLevel> ProgrammeLevels { get; set; }
+        public virtual ICollection<AwardLevel> AwardLevels { get; set; }
     }
 }

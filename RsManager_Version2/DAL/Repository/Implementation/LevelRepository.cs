@@ -33,5 +33,15 @@ namespace DAL.Repository.Implementation
             }
             return lev;
         }
+
+        public IEnumerable<Level> GetAllLevels(int awrdId)
+        {
+            return Context.Set<AwardLevel>().Where(c => c.AwardId == awrdId).Select(m => m.Level);
+        }
+
+        public Level GetLevel(string des)
+        {
+            return Context.Set<Level>().Where(c => c.Description.ToLower() == des.ToLower()).FirstOrDefault();
+        }
     }
 }

@@ -14,6 +14,12 @@ namespace DAL
     
     public partial class StudentLevel
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public StudentLevel()
+        {
+            this.Registrations = new HashSet<Registration>();
+        }
+    
         public int Id { get; set; }
         public Nullable<int> StudentId { get; set; }
         public Nullable<int> ProgLevId { get; set; }
@@ -29,5 +35,7 @@ namespace DAL
         public virtual Session Session { get; set; }
         public virtual Student Student { get; set; }
         public virtual StudentLevelPaymentStatu StudentLevelPaymentStatu { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Registration> Registrations { get; set; }
     }
 }

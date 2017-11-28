@@ -18,19 +18,22 @@ namespace DAL
         public ProgrammeLevel()
         {
             this.StudentLevels = new HashSet<StudentLevel>();
+            this.Curricula = new HashSet<Curriculum>();
         }
     
         public int Id { get; set; }
         public string ProgrammeDescription { get; set; }
         public Nullable<int> ProgId { get; set; }
-        public Nullable<int> LevId { get; set; }
         public Nullable<int> Status { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
+        public int AwardLevelId { get; set; }
     
-        public virtual Level Level { get; set; }
         public virtual Programme Programme { get; set; }
         public virtual ProgrammeStatu ProgrammeStatu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentLevel> StudentLevels { get; set; }
+        public virtual AwardLevel AwardLevel { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Curriculum> Curricula { get; set; }
     }
 }

@@ -9,7 +9,8 @@ namespace DAL.Repository.Interface
     public interface ILevelRepository : IRepository<Level>
     {
 
-        IEnumerable<Level> GetAllLevels();
+        IEnumerable<Level> GetAllLevels(int awrdId);
+        Level GetLevel(string des);
        
 
     }

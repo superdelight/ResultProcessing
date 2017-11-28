@@ -43,5 +43,19 @@ namespace DAL
         public virtual DbSet<DisciplinaryStatu> DisciplinaryStatus { get; set; }
         public virtual DbSet<StudentLevelPaymentStatu> StudentLevelPaymentStatus { get; set; }
         public virtual DbSet<StudentLevel> StudentLevels { get; set; }
+        public virtual DbSet<Centre> Centres { get; set; }
+        public virtual DbSet<State> States { get; set; }
+        public virtual DbSet<GeoZone> GeoZones { get; set; }
+        public virtual DbSet<LGA> LGAs { get; set; }
+        public virtual DbSet<City> Cities { get; set; }
+        public virtual DbSet<Requirement> Requirements { get; set; }
+        public virtual DbSet<RequiredCourse> RequiredCourses { get; set; }
+        public virtual DbSet<Award> Awards { get; set; }
+        public virtual DbSet<AwardLevel> AwardLevels { get; set; }
+        public virtual DbSet<Curriculum> Curricula { get; set; }
+        public virtual DbSet<Registration> Registrations { get; set; }
+        public virtual DbSet<RegistrationStatus> RegistrationStatus { get; set; }
+        public virtual DbSet<Result> Results { get; set; }
+        public virtual DbSet<Grade> Grades { get; set; }
     }
 }

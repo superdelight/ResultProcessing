@@ -19,6 +19,7 @@ namespace DAL
         {
             this.ProgrammeLevels = new HashSet<ProgrammeLevel>();
             this.Students = new HashSet<Student>();
+            this.ProgrammeReqs = new HashSet<ProgrammeReq>();
         }
     
         public int Id { get; set; }
@@ -33,5 +34,7 @@ namespace DAL
         public virtual ICollection<ProgrammeLevel> ProgrammeLevels { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Student> Students { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProgrammeReq> ProgrammeReqs { get; set; }
     }
 }

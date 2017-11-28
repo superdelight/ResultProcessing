@@ -1,0 +1,55 @@
+﻿@model PortalSolution.Areas.Administration.Models.ProgrammeDMV
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="form-control">
+
+    @*<label class="control-label">Department</label>*@
+    <div class="col-md-12 dropdown">
+
+        @using (Html.BeginForm("Index", "Programme", FormMethod.Post))
+        {
+            @Html.DropDownListFor(model => model.DeptId, Model.Departments, "Select Department", new { id = "deptId", onchange = "this.form.submit();" })
+        }
+    </div>
+</div>
+@{int count = 0; }
+<table class="table">
+    <tr>
+        <th>
+            SN
+        </th>
+        <th>
+            Code
+        </th>
+        <th>
+           Description
+        </th>
+      
+        <th></th>
+    </tr>
+    
+@foreach (var item in Model.Programmes) {
+    count++;
+    <tr>
+        <td>
+           @count
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.ProgrammeCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProgrammeDescription)
+        </td>
+      
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -57,8 +58,23 @@
     <Compile Include="AvailabityStatusEnum.cs">
       <DependentUpon>RS.tt</DependentUpon>
     </Compile>
+    <Compile Include="Award.cs">
+      <DependentUpon>RS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AwardLevel.cs">
+      <DependentUpon>RS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Centre.cs">
+      <DependentUpon>RS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="City.cs">
+      <DependentUpon>RS.tt</DependentUpon>
+    </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="Course.cs">
+      <DependentUpon>RS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Curriculum.cs">
       <DependentUpon>RS.tt</DependentUpon>
     </Compile>
     <Compile Include="Department.cs">
@@ -73,8 +89,28 @@
     <Compile Include="Faculty.cs">
       <DependentUpon>RS.tt</DependentUpon>
     </Compile>
+    <Compile Include="FacultyReq.cs">
+      <DependentUpon>RS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeneralReq.cs">
+      <DependentUpon>RS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeoZone.cs">
+      <DependentUpon>RS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Grade.cs">
+      <DependentUpon>RS.tt</DependentUpon>
+    </Compile>
     <Compile Include="Level.cs">
       <DependentUpon>RS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LGA.cs">
+      <DependentUpon>RS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Programme.cs">
       <DependentUpon>RS.tt</DependentUpon>
@@ -82,27 +118,67 @@
     <Compile Include="ProgrammeLevel.cs">
       <DependentUpon>RS.tt</DependentUpon>
     </Compile>
+    <Compile Include="ProgrammeReq.cs">
+      <DependentUpon>RS.tt</DependentUpon>
+    </Compile>
     <Compile Include="ProgrammeStatu.cs">
       <DependentUpon>RS.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registration.cs">
+      <DependentUpon>RS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrationStatus.cs">
+      <DependentUpon>RS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\Implementation\AwardLevelRepository.cs" />
+    <Compile Include="Repository\Implementation\StateRepository.cs" />
+    <Compile Include="Repository\Implementation\RequiredCourseRepository.cs" />
+    <Compile Include="Repository\Implementation\ProgrammeReqRepository.cs" />
+    <Compile Include="Repository\Implementation\LGARepository.cs" />
+    <Compile Include="Repository\Implementation\GeoZoneRepository.cs" />
+    <Compile Include="Repository\Implementation\GenReqRepository.cs" />
+    <Compile Include="Repository\Implementation\FacultyReqRepository.cs" />
+    <Compile Include="Repository\Implementation\CityRepository.cs" />
+    <Compile Include="Repository\Implementation\CentreRepository.cs" />
+    <Compile Include="Repository\Implementation\AwardRepository.cs" />
     <Compile Include="Repository\Implementation\LevelRepository.cs" />
     <Compile Include="Repository\Implementation\ProgrammeRepository.cs" />
     <Compile Include="Repository\Implementation\CourseRepository.cs" />
     <Compile Include="Repository\Implementation\DepartmentRepository.cs" />
-    <Compile Include="Repository\Implementation\ResultLINQ.cs" />
+    <Compile Include="Service\Implementation\AdminContext.cs" />
     <Compile Include="Repository\Implementation\Repository.cs" />
     <Compile Include="Repository\Implementation\FacultyRepository.cs" />
     <Compile Include="Repository\Implementation\SchoolRepository.cs" />
     <Compile Include="Repository\Interface\Class1.cs" />
+    <Compile Include="Repository\Interface\IAwardLevelRepository.cs" />
+    <Compile Include="Repository\Interface\IRequiredCourseRepository.cs" />
+    <Compile Include="Repository\Interface\IFacReqRepository.cs" />
+    <Compile Include="Repository\Interface\IProgReqRepository.cs" />
+    <Compile Include="Repository\Interface\IGenReqRepository.cs" />
+    <Compile Include="Repository\Interface\IAwardRepository.cs" />
+    <Compile Include="Repository\Interface\ILGARepository.cs" />
+    <Compile Include="Repository\Interface\ICityRepository.cs" />
+    <Compile Include="Repository\Interface\IStateRepository.cs" />
+    <Compile Include="Repository\Interface\IGeoZoneRepository.cs" />
     <Compile Include="Repository\Interface\ILevelRepository.cs" />
     <Compile Include="Repository\Interface\IProgrammeRepository.cs" />
     <Compile Include="Repository\Interface\ICourseRepository.cs" />
     <Compile Include="Repository\Interface\IDepartmentRepository.cs" />
     <Compile Include="Repository\Interface\IFacultyRepository.cs" />
+    <Compile Include="Repository\Interface\ICentreRepository.cs" />
     <Compile Include="Repository\Interface\ISchoolRepository.cs" />
     <Compile Include="Repository\Interface\IRepository.cs" />
-    <Compile Include="Repository\Interface\IResultLINQ.cs" />
+    <Compile Include="Service\Interface\IAdminContext.cs" />
+    <Compile Include="RequiredCourse.cs">
+      <DependentUpon>RS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Requirement.cs">
+      <DependentUpon>RS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Result.cs">
+      <DependentUpon>RS.tt</DependentUpon>
+    </Compile>
     <Compile Include="RS.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -131,6 +207,9 @@
       <DependentUpon>RS.tt</DependentUpon>
     </Compile>
     <Compile Include="SessionStatu.cs">
+      <DependentUpon>RS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="State.cs">
       <DependentUpon>RS.tt</DependentUpon>
     </Compile>
     <Compile Include="Student.cs">
@@ -163,11 +242,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>RS.edmx</DependentUpon>
+    </Content>
     <Content Include="RS.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>RS.edmx</DependentUpon>
       <LastGenOutput>RS.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="RS.edmx.sql" />
     <Content Include="RS.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>RS.edmx</DependentUpon>

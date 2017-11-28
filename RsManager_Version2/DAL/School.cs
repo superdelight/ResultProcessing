@@ -18,6 +18,7 @@ namespace DAL
         public School()
         {
             this.Faculties = new HashSet<Faculty>();
+            this.Centres = new HashSet<Centre>();
         }
     
         public int Id { get; set; }
@@ -26,8 +27,12 @@ namespace DAL
         public string Address { get; set; }
         public Nullable<bool> IsVisible { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
+        public string PhoneNo { get; set; }
+        public string EmailAddress { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Faculty> Faculties { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Centre> Centres { get; set; }
     }
 }
