@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ResultBusinessLogic.Utility" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ResultBusinessLogic.Utility" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="BusinessMessageOfboolean">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="BusinessMessageOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/ResultBusinessLogic.Utility" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BusinessBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Result" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BusinessMessageOfboolean" nillable="true" type="tns:BusinessMessageOfboolean" />
+  <xs:complexType name="BusinessBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Response" type="tns:ResponseCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BusinessBase" nillable="true" type="tns:BusinessBase" />
+  <xs:simpleType name="ResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="NotOk" />
+      <xs:enumeration value="Error" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ResponseCode" nillable="true" type="tns:ResponseCode" />
+</xs:schema>

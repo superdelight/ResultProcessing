@@ -126,7 +126,7 @@ namespace RS.Implementation.Implementation
             return logic.GetAllFacReqInSemester(semId).ToDTO();
         }
 
-        public List<FacultyReqDTO> GetAllFacReqInSemester(int semId, int facId)
+        public List<FacultyReqDTO> GetAllFacReqInSemesterFaq(int semId, int facId)
         {
             throw new NotImplementedException();
         }
@@ -149,6 +149,11 @@ namespace RS.Implementation.Implementation
         public List<StateDTO> GetAllStates()
         {
             return logic.GetAllStates().ToDTO();
+        }
+
+        public List<StateDTO> GetAllStatesinZone(int zoneId)
+        {
+            return logic.GetAllStates(zoneId).ToDTO();
         }
 
         public List<GeoZoneDTO> GetAllZones()

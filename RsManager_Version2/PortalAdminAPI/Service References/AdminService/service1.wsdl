@@ -1,0 +1,739 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PortalAdminService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IPortalAdminService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/RS.DataContract" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ResultBusinessLogic.Utility" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPortalAdminService_GetDefaultSchool_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultSchool" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetDefaultSchool_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultSchoolResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_CreateSchool_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSchool" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_CreateSchool_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSchoolResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_CreateFaculty_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFaculty" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_CreateFaculty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFacultyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllFaculties_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFaculties" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllFaculties_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFacultiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllDepartmentsinFAC_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDepartmentsinFAC" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllDepartmentsinFAC_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDepartmentsinFACResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_CreateDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDepartment" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_CreateDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_CreateNewProgramme_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewProgramme" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_CreateNewProgramme_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewProgrammeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllDepartments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDepartments" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllDepartments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDepartmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetProgrammesInDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgrammesInDepartment" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetProgrammesInDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgrammesInDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetProgrammesInFaculty_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgrammesInFaculty" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetProgrammesInFaculty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgrammesInFacultyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_CreateNewAward_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewAward" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_CreateNewAward_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewAwardResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllAwards_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAwards" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllAwards_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAwardsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAward_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAward" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAward_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAwardResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_CreateNewZone_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewZone" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_CreateNewZone_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewZoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllZones_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllZones" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllZones_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllZonesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetZone_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetZone" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetZone_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetZoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_CreateNewState_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewState" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_CreateNewState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllStates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStates" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllStates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetState_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetState" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_CreateNewCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewCity" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_CreateNewCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllCities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCities" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllCities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCity" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_CreateNewCentre_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewCentre" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_CreateNewCentre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewCentreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllCentresinCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCentresinCity" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllCentresinCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCentresinCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllCentresinState_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCentresinState" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllCentresinState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCentresinStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetCentre_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCentre" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetCentre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCentreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_CreateAwardLevel_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAwardLevel" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_CreateAwardLevel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAwardLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllAwardLevel_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAwardLevel" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllAwardLevel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAwardLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAwardLevel_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAwardLevel" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAwardLevel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAwardLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_CreateFacRequirement_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFacRequirement" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_CreateFacRequirement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFacRequirementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetFacRequirement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFacRequirement" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetFacRequirement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFacRequirementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllFacultyReq_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFacultyReq" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllFacultyReq_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFacultyReqResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllFacReqInSemester_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFacReqInSemester" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllFacReqInSemester_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFacReqInSemesterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllFacultyReqInFac_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFacultyReqInFac" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllFacultyReqInFac_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFacultyReqInFacResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllFacReq_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFacReq" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllFacReq_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFacReqResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllFacReqInSemesterFaq_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFacReqInSemesterFaq" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllFacReqInSemesterFaq_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFacReqInSemesterFaqResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllFacReqInFaculty_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFacReqInFaculty" />
+  </wsdl:message>
+  <wsdl:message name="IPortalAdminService_GetAllFacReqInFaculty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFacReqInFacultyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPortalAdminService">
+    <wsdl:operation name="GetDefaultSchool">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetDefaultSchool" message="tns:IPortalAdminService_GetDefaultSchool_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetDefaultSchoolResponse" message="tns:IPortalAdminService_GetDefaultSchool_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSchool">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/CreateSchool" message="tns:IPortalAdminService_CreateSchool_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/CreateSchoolResponse" message="tns:IPortalAdminService_CreateSchool_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateFaculty">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/CreateFaculty" message="tns:IPortalAdminService_CreateFaculty_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/CreateFacultyResponse" message="tns:IPortalAdminService_CreateFaculty_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFaculties">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllFaculties" message="tns:IPortalAdminService_GetAllFaculties_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllFacultiesResponse" message="tns:IPortalAdminService_GetAllFaculties_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDepartmentsinFAC">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllDepartmentsinFAC" message="tns:IPortalAdminService_GetAllDepartmentsinFAC_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllDepartmentsinFACResponse" message="tns:IPortalAdminService_GetAllDepartmentsinFAC_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDepartment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/CreateDepartment" message="tns:IPortalAdminService_CreateDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/CreateDepartmentResponse" message="tns:IPortalAdminService_CreateDepartment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewProgramme">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/CreateNewProgramme" message="tns:IPortalAdminService_CreateNewProgramme_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/CreateNewProgrammeResponse" message="tns:IPortalAdminService_CreateNewProgramme_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDepartments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllDepartments" message="tns:IPortalAdminService_GetAllDepartments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllDepartmentsResponse" message="tns:IPortalAdminService_GetAllDepartments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProgrammesInDepartment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetProgrammesInDepartment" message="tns:IPortalAdminService_GetProgrammesInDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetProgrammesInDepartmentResponse" message="tns:IPortalAdminService_GetProgrammesInDepartment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProgrammesInFaculty">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetProgrammesInFaculty" message="tns:IPortalAdminService_GetProgrammesInFaculty_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetProgrammesInFacultyResponse" message="tns:IPortalAdminService_GetProgrammesInFaculty_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewAward">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/CreateNewAward" message="tns:IPortalAdminService_CreateNewAward_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/CreateNewAwardResponse" message="tns:IPortalAdminService_CreateNewAward_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAwards">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllAwards" message="tns:IPortalAdminService_GetAllAwards_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllAwardsResponse" message="tns:IPortalAdminService_GetAllAwards_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAward">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetAward" message="tns:IPortalAdminService_GetAward_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetAwardResponse" message="tns:IPortalAdminService_GetAward_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewZone">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/CreateNewZone" message="tns:IPortalAdminService_CreateNewZone_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/CreateNewZoneResponse" message="tns:IPortalAdminService_CreateNewZone_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllZones">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllZones" message="tns:IPortalAdminService_GetAllZones_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllZonesResponse" message="tns:IPortalAdminService_GetAllZones_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetZone">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetZone" message="tns:IPortalAdminService_GetZone_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetZoneResponse" message="tns:IPortalAdminService_GetZone_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewState">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/CreateNewState" message="tns:IPortalAdminService_CreateNewState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/CreateNewStateResponse" message="tns:IPortalAdminService_CreateNewState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStates">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllStates" message="tns:IPortalAdminService_GetAllStates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllStatesResponse" message="tns:IPortalAdminService_GetAllStates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetState">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetState" message="tns:IPortalAdminService_GetState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetStateResponse" message="tns:IPortalAdminService_GetState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewCity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/CreateNewCity" message="tns:IPortalAdminService_CreateNewCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/CreateNewCityResponse" message="tns:IPortalAdminService_CreateNewCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCities">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllCities" message="tns:IPortalAdminService_GetAllCities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllCitiesResponse" message="tns:IPortalAdminService_GetAllCities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetCity" message="tns:IPortalAdminService_GetCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetCityResponse" message="tns:IPortalAdminService_GetCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewCentre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/CreateNewCentre" message="tns:IPortalAdminService_CreateNewCentre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/CreateNewCentreResponse" message="tns:IPortalAdminService_CreateNewCentre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCentresinCity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllCentresinCity" message="tns:IPortalAdminService_GetAllCentresinCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllCentresinCityResponse" message="tns:IPortalAdminService_GetAllCentresinCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCentresinState">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllCentresinState" message="tns:IPortalAdminService_GetAllCentresinState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllCentresinStateResponse" message="tns:IPortalAdminService_GetAllCentresinState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCentre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetCentre" message="tns:IPortalAdminService_GetCentre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetCentreResponse" message="tns:IPortalAdminService_GetCentre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAwardLevel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/CreateAwardLevel" message="tns:IPortalAdminService_CreateAwardLevel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/CreateAwardLevelResponse" message="tns:IPortalAdminService_CreateAwardLevel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAwardLevel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllAwardLevel" message="tns:IPortalAdminService_GetAllAwardLevel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllAwardLevelResponse" message="tns:IPortalAdminService_GetAllAwardLevel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAwardLevel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetAwardLevel" message="tns:IPortalAdminService_GetAwardLevel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetAwardLevelResponse" message="tns:IPortalAdminService_GetAwardLevel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateFacRequirement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/CreateFacRequirement" message="tns:IPortalAdminService_CreateFacRequirement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/CreateFacRequirementResponse" message="tns:IPortalAdminService_CreateFacRequirement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFacRequirement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetFacRequirement" message="tns:IPortalAdminService_GetFacRequirement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetFacRequirementResponse" message="tns:IPortalAdminService_GetFacRequirement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFacultyReq">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllFacultyReq" message="tns:IPortalAdminService_GetAllFacultyReq_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllFacultyReqResponse" message="tns:IPortalAdminService_GetAllFacultyReq_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFacReqInSemester">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllFacReqInSemester" message="tns:IPortalAdminService_GetAllFacReqInSemester_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllFacReqInSemesterResponse" message="tns:IPortalAdminService_GetAllFacReqInSemester_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFacultyReqInFac">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllFacultyReqInFac" message="tns:IPortalAdminService_GetAllFacultyReqInFac_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllFacultyReqInFacResponse" message="tns:IPortalAdminService_GetAllFacultyReqInFac_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFacReq">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllFacReq" message="tns:IPortalAdminService_GetAllFacReq_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllFacReqResponse" message="tns:IPortalAdminService_GetAllFacReq_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFacReqInSemesterFaq">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllFacReqInSemesterFaq" message="tns:IPortalAdminService_GetAllFacReqInSemesterFaq_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllFacReqInSemesterFaqResponse" message="tns:IPortalAdminService_GetAllFacReqInSemesterFaq_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFacReqInFaculty">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllFacReqInFaculty" message="tns:IPortalAdminService_GetAllFacReqInFaculty_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalAdminService/GetAllFacReqInFacultyResponse" message="tns:IPortalAdminService_GetAllFacReqInFaculty_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IPortalAdminService" type="tns:IPortalAdminService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IPortalAdminService_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GetDefaultSchool">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetDefaultSchool" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSchool">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/CreateSchool" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateFaculty">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/CreateFaculty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFaculties">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetAllFaculties" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDepartmentsinFAC">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetAllDepartmentsinFAC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDepartment">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/CreateDepartment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewProgramme">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/CreateNewProgramme" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDepartments">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetAllDepartments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgrammesInDepartment">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetProgrammesInDepartment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgrammesInFaculty">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetProgrammesInFaculty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewAward">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/CreateNewAward" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAwards">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetAllAwards" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAward">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetAward" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewZone">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/CreateNewZone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllZones">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetAllZones" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetZone">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetZone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewState">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/CreateNewState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStates">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetAllStates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetState">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewCity">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/CreateNewCity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCities">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetAllCities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCity">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetCity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewCentre">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/CreateNewCentre" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCentresinCity">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetAllCentresinCity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCentresinState">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetAllCentresinState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCentre">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetCentre" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAwardLevel">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/CreateAwardLevel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAwardLevel">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetAllAwardLevel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAwardLevel">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetAwardLevel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateFacRequirement">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/CreateFacRequirement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacRequirement">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetFacRequirement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFacultyReq">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetAllFacultyReq" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFacReqInSemester">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetAllFacReqInSemester" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFacultyReqInFac">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetAllFacultyReqInFac" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFacReq">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetAllFacReq" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFacReqInSemesterFaq">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetAllFacReqInSemesterFaq" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFacReqInFaculty">
+      <soap12:operation soapAction="http://tempuri.org/IPortalAdminService/GetAllFacReqInFaculty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PortalAdminService">
+    <wsdl:port name="NetTcpBinding_IPortalAdminService" binding="tns:NetTcpBinding_IPortalAdminService">
+      <soap12:address location="net.tcp://localhost/PortalService/PortalAdminService.svc/PortalAdminService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost/PortalService/PortalAdminService.svc/PortalAdminService</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

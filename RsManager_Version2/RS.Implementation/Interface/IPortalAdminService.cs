@@ -38,35 +38,55 @@ namespace RS.Implementation.Interface
         List<AwardDTO> GetAllAwards();
         [OperationContract]
         AwardDTO GetAward(string acronyms);
-
+        [OperationContract]
         BusinessMessage<bool> CreateNewZone(GeoZoneDTO zone);
+        [OperationContract]
         List<GeoZoneDTO> GetAllZones();
+        [OperationContract]
         GeoZoneDTO GetZone(string des);
-
+        [OperationContract]
         BusinessMessage<bool> CreateNewState(StateDTO state);
+        [OperationContract]
         List<StateDTO> GetAllStates();
+        [OperationContract]
+        List<StateDTO> GetAllStatesinZone(int zoneId);
+        [OperationContract]
         StateDTO GetState(string des);
-
+        [OperationContract]
         BusinessMessage<bool> CreateNewCity(CityDTO city);
+        [OperationContract]
         List<CityDTO> GetAllCities(int stateId);
+        [OperationContract]
         CityDTO GetCity(string des);
-
+        [OperationContract]
         BusinessMessage<bool> CreateNewCentre(CentreDTO centre);
+        [OperationContract]
         List<CentreDTO> GetAllCentresinCity(int cityId);
+        [OperationContract]
         List<CentreDTO> GetAllCentresinState(int stateId);
+        [OperationContract]
         CentreDTO GetCentre(string des);
-
+        [OperationContract]
         BusinessMessage<bool> CreateAwardLevel(AwardLevelDTO awrdLevel);
+        [OperationContract]
         List<AwardLevelDTO> GetAllAwardLevel();
+        [OperationContract]
         AwardLevelDTO GetAwardLevel(int awrdId, int levId);
-
+        [OperationContract]
         BusinessMessage<bool> CreateFacRequirement(FacultyReqDTO facReq);
+        [OperationContract]
         FacultyReqDTO GetFacRequirement(int awrdId, int semId, int facId, bool? IsElective);
+        [OperationContract]
         List<FacultyReqDTO> GetAllFacultyReq(int awrdLevId);
+        [OperationContract]
         List<FacultyReqDTO> GetAllFacReqInSemester(int semId);
+        [OperationContract]
         List<FacultyReqDTO> GetAllFacultyReqInFac(int facId);
+        [OperationContract]
         List<FacultyReqDTO> GetAllFacReq(int awrdLevId, int facId);
-        List<FacultyReqDTO> GetAllFacReqInSemester(int semId, int facId);
+        [OperationContract]
+        List<FacultyReqDTO> GetAllFacReqInSemesterFaq(int semId, int facId);
+        [OperationContract]
         List<FacultyReqDTO> GetAllFacReqInFaculty(int facId, bool? IsElective);
     }
 }

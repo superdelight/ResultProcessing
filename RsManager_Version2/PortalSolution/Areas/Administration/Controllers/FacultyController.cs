@@ -46,7 +46,6 @@ namespace PortalSolution.Areas.Administration.Controllers
                 ViewBag.Signal = "error";
             }
             return View(fac);
-
         }
         public ActionResult ViewFaculties()
         {

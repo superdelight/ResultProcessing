@@ -11,7 +11,7 @@ namespace DAL.Repository.Service.Implementation
 {
     public class AdminContext:IAdminContext
     {
-           private readonly ResultMEntities _Context;
+           private  ResultMEntities _Context;
         public AdminContext()
         {
             _Context = new DAL.ResultMEntities();
@@ -30,7 +30,6 @@ namespace DAL.Repository.Service.Implementation
             GenReqContext = new GenReqRepository(_Context);
             StateContext = new StateRepository(_Context);
         }
-
         public IAwardRepository AwardContext { get; private set; }
         public IAwardLevelRepository AwardLevelContext { get; private set; }
         public ICentreRepository CentreContext { get; private set; }
@@ -44,20 +43,18 @@ namespace DAL.Repository.Service.Implementation
         public ILevelRepository LevelContext { get; private set; }
         public IProgrammeRepository ProgrammeContext { get; private set; }
         public ISchoolRepository SchoolContext { get; private set;}
-
         public IStateRepository StateContext { get; private set; }
         public void Dispose()
         {
             _Context.Dispose();
         }
-
         public int SaveChanges()
         {
             try
             {
                 return _Context.SaveChanges();
             }
-            catch
+            catch(Exception ex)
             {
                 return -1;
             }

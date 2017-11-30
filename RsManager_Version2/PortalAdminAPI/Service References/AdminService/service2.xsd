@@ -1,0 +1,516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/RS.DataContract" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/ResultBusinessLogic.Utility" />
+  <xs:element name="GetDefaultSchool">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultSchoolResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetDefaultSchoolResult" nillable="true" type="q1:SchoolDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSchool">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="school" nillable="true" type="q2:SchoolDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSchoolResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ResultBusinessLogic.Utility" minOccurs="0" name="CreateSchoolResult" nillable="true" type="q3:BusinessMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateFaculty">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="faculty" nillable="true" type="q4:FacultyDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateFacultyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ResultBusinessLogic.Utility" minOccurs="0" name="CreateFacultyResult" nillable="true" type="q5:BusinessMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllFaculties">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllFacultiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetAllFacultiesResult" nillable="true" type="q6:ArrayOfFacultyDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllDepartmentsinFAC">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="facId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllDepartmentsinFACResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetAllDepartmentsinFACResult" nillable="true" type="q7:ArrayOfDepartmentDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDepartment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="dept" nillable="true" type="q8:DepartmentDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDepartmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ResultBusinessLogic.Utility" minOccurs="0" name="CreateDepartmentResult" nillable="true" type="q9:BusinessMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewProgramme">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="progr" nillable="true" type="q10:ProgrammeDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewProgrammeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ResultBusinessLogic.Utility" minOccurs="0" name="CreateNewProgrammeResult" nillable="true" type="q11:BusinessMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllDepartments">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllDepartmentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetAllDepartmentsResult" nillable="true" type="q12:ArrayOfDepartmentDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgrammesInDepartment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="deptId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgrammesInDepartmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetProgrammesInDepartmentResult" nillable="true" type="q13:ArrayOfProgrammeDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgrammesInFaculty">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="facId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgrammesInFacultyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetProgrammesInFacultyResult" nillable="true" type="q14:ArrayOfProgrammeDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewAward">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="award" nillable="true" type="q15:AwardDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewAwardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/ResultBusinessLogic.Utility" minOccurs="0" name="CreateNewAwardResult" nillable="true" type="q16:BusinessMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAwards">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAwardsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetAllAwardsResult" nillable="true" type="q17:ArrayOfAwardDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAward">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="acronyms" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAwardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetAwardResult" nillable="true" type="q18:AwardDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewZone">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="zone" nillable="true" type="q19:GeoZoneDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewZoneResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/ResultBusinessLogic.Utility" minOccurs="0" name="CreateNewZoneResult" nillable="true" type="q20:BusinessMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllZones">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllZonesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetAllZonesResult" nillable="true" type="q21:ArrayOfGeoZoneDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetZone">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="des" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetZoneResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetZoneResult" nillable="true" type="q22:GeoZoneDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewState">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="state" nillable="true" type="q23:StateDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewStateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/ResultBusinessLogic.Utility" minOccurs="0" name="CreateNewStateResult" nillable="true" type="q24:BusinessMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllStates">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllStatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetAllStatesResult" nillable="true" type="q25:ArrayOfStateDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetState">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="des" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetStateResult" nillable="true" type="q26:StateDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewCity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="city" nillable="true" type="q27:CityDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewCityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/ResultBusinessLogic.Utility" minOccurs="0" name="CreateNewCityResult" nillable="true" type="q28:BusinessMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCities">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stateId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCitiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetAllCitiesResult" nillable="true" type="q29:ArrayOfCityDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="des" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetCityResult" nillable="true" type="q30:CityDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewCentre">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="centre" nillable="true" type="q31:CentreDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewCentreResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/ResultBusinessLogic.Utility" minOccurs="0" name="CreateNewCentreResult" nillable="true" type="q32:BusinessMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCentresinCity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cityId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCentresinCityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetAllCentresinCityResult" nillable="true" type="q33:ArrayOfCentreDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCentresinState">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stateId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCentresinStateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetAllCentresinStateResult" nillable="true" type="q34:ArrayOfCentreDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCentre">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="des" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCentreResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetCentreResult" nillable="true" type="q35:CentreDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAwardLevel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="awrdLevel" nillable="true" type="q36:AwardLevelDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAwardLevelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/ResultBusinessLogic.Utility" minOccurs="0" name="CreateAwardLevelResult" nillable="true" type="q37:BusinessMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAwardLevel">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAwardLevelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetAllAwardLevelResult" nillable="true" type="q38:ArrayOfAwardLevelDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAwardLevel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="awrdId" type="xs:int" />
+        <xs:element minOccurs="0" name="levId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAwardLevelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetAwardLevelResult" nillable="true" type="q39:AwardLevelDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateFacRequirement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="facReq" nillable="true" type="q40:FacultyReqDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateFacRequirementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/ResultBusinessLogic.Utility" minOccurs="0" name="CreateFacRequirementResult" nillable="true" type="q41:BusinessMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFacRequirement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="awrdId" type="xs:int" />
+        <xs:element minOccurs="0" name="semId" type="xs:int" />
+        <xs:element minOccurs="0" name="facId" type="xs:int" />
+        <xs:element minOccurs="0" name="IsElective" nillable="true" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFacRequirementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetFacRequirementResult" nillable="true" type="q42:FacultyReqDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllFacultyReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="awrdLevId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllFacultyReqResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetAllFacultyReqResult" nillable="true" type="q43:ArrayOfFacultyReqDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllFacReqInSemester">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="semId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllFacReqInSemesterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetAllFacReqInSemesterResult" nillable="true" type="q44:ArrayOfFacultyReqDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllFacultyReqInFac">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="facId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllFacultyReqInFacResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetAllFacultyReqInFacResult" nillable="true" type="q45:ArrayOfFacultyReqDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllFacReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="awrdLevId" type="xs:int" />
+        <xs:element minOccurs="0" name="facId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllFacReqResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetAllFacReqResult" nillable="true" type="q46:ArrayOfFacultyReqDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllFacReqInSemesterFaq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="semId" type="xs:int" />
+        <xs:element minOccurs="0" name="facId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllFacReqInSemesterFaqResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetAllFacReqInSemesterFaqResult" nillable="true" type="q47:ArrayOfFacultyReqDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllFacReqInFaculty">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="facId" type="xs:int" />
+        <xs:element minOccurs="0" name="IsElective" nillable="true" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllFacReqInFacultyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/RS.DataContract" minOccurs="0" name="GetAllFacReqInFacultyResult" nillable="true" type="q48:ArrayOfFacultyReqDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

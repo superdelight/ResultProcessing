@@ -33,7 +33,7 @@ namespace ResultBusinessLogic.Interface
         BusinessMessage<bool> CreateNewState(State state);
         List<State> GetAllStates();
         State GetState(string des);
-
+        List<State> GetAllStates(int zoneId);
         BusinessMessage<bool> CreateNewCity(City city);
         List<City> GetAllCities(int stateId);
         City GetCity(string des);

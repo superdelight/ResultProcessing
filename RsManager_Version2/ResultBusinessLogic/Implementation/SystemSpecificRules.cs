@@ -323,6 +323,10 @@ namespace ResultBusinessLogic.Implementation
         {
             return context.StateContext.GetAll().ToList();
         }
+        public List<State> GetAllStates(int zoneId)
+        {
+            return context.StateContext.GetAllStates(zoneId).ToList();
+        }
 
         public State GetState(string des)
         {

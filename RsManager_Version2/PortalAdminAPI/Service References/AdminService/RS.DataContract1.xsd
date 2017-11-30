@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RS.DataContract" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RS.DataContract" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="SchoolDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateCreated" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsVisible" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Logo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SchoolName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SchoolDTO" nillable="true" type="tns:SchoolDTO" />
+  <xs:complexType name="FacultyDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FacAcronyms" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FacName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsVisible" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SchoolId" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FacultyDTO" nillable="true" type="tns:FacultyDTO" />
+  <xs:complexType name="ArrayOfFacultyDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FacultyDTO" nillable="true" type="tns:FacultyDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFacultyDTO" nillable="true" type="tns:ArrayOfFacultyDTO" />
+  <xs:complexType name="ArrayOfDepartmentDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DepartmentDTO" nillable="true" type="tns:DepartmentDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDepartmentDTO" nillable="true" type="tns:ArrayOfDepartmentDTO" />
+  <xs:complexType name="DepartmentDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateCreated" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DeptCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeptFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FacId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsVisible" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DepartmentDTO" nillable="true" type="tns:DepartmentDTO" />
+  <xs:complexType name="ProgrammeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateCreated" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ExpectedGraduationYear" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ProgrammeCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProgrammeDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="deptId" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProgrammeDTO" nillable="true" type="tns:ProgrammeDTO" />
+  <xs:complexType name="ArrayOfProgrammeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProgrammeDTO" nillable="true" type="tns:ProgrammeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProgrammeDTO" nillable="true" type="tns:ArrayOfProgrammeDTO" />
+  <xs:complexType name="AwardDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AwardAcronyms" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AwardName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AwardDTO" nillable="true" type="tns:AwardDTO" />
+  <xs:complexType name="ArrayOfAwardDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AwardDTO" nillable="true" type="tns:AwardDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAwardDTO" nillable="true" type="tns:ArrayOfAwardDTO" />
+  <xs:complexType name="GeoZoneDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GeoZoneDTO" nillable="true" type="tns:GeoZoneDTO" />
+  <xs:complexType name="ArrayOfGeoZoneDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GeoZoneDTO" nillable="true" type="tns:GeoZoneDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGeoZoneDTO" nillable="true" type="tns:ArrayOfGeoZoneDTO" />
+  <xs:complexType name="StateDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GeoZoneId" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="StateCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StateDTO" nillable="true" type="tns:StateDTO" />
+  <xs:complexType name="ArrayOfStateDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StateDTO" nillable="true" type="tns:StateDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStateDTO" nillable="true" type="tns:ArrayOfStateDTO" />
+  <xs:complexType name="CityDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CityName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="StateId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CityDTO" nillable="true" type="tns:CityDTO" />
+  <xs:complexType name="ArrayOfCityDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CityDTO" nillable="true" type="tns:CityDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCityDTO" nillable="true" type="tns:ArrayOfCityDTO" />
+  <xs:complexType name="CentreDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CentreCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CentrePicture" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CityId" type="xs:int" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="PhoneNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SchoolId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CentreDTO" nillable="true" type="tns:CentreDTO" />
+  <xs:complexType name="ArrayOfCentreDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CentreDTO" nillable="true" type="tns:CentreDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCentreDTO" nillable="true" type="tns:ArrayOfCentreDTO" />
+  <xs:complexType name="AwardLevelDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AwardId" type="xs:int" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LevelId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AwardLevelDTO" nillable="true" type="tns:AwardLevelDTO" />
+  <xs:complexType name="ArrayOfAwardLevelDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AwardLevelDTO" nillable="true" type="tns:AwardLevelDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAwardLevelDTO" nillable="true" type="tns:ArrayOfAwardLevelDTO" />
+  <xs:complexType name="FacultyReqDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequirementDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FacultyId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FacultyReqDTO" nillable="true" type="tns:FacultyReqDTO" />
+  <xs:complexType name="RequirementDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AwardLevelId" type="xs:int" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsElective" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MaximumUnit" type="xs:int" />
+      <xs:element minOccurs="0" name="MinimumUnit" type="xs:int" />
+      <xs:element minOccurs="0" name="SemesterId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequirementDTO" nillable="true" type="tns:RequirementDTO" />
+  <xs:complexType name="ArrayOfFacultyReqDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FacultyReqDTO" nillable="true" type="tns:FacultyReqDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFacultyReqDTO" nillable="true" type="tns:ArrayOfFacultyReqDTO" />
+</xs:schema>

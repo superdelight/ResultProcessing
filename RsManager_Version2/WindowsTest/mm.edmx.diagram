@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="20233933d9c144c4a5b97c2d785c2d85" Name="Diagram1">
+        <EntityTypeShape EntityType="ResultMModel.AvailabityStatu" Width="1.5" PointX="12.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.AwardLevel" Width="1.5" PointX="7.5" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.Award" Width="1.5" PointX="5.25" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.Centre" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.City" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.Cours" Width="1.5" PointX="7.5" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.Curriculum" Width="1.5" PointX="15" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.Department" Width="1.5" PointX="5.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.DisciplinaryStatu" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.Faculty" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.GeoZone" Width="1.5" PointX="1.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.Grade" Width="1.5" PointX="17.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.Level" Width="1.5" PointX="5.25" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.LGA" Width="1.5" PointX="10.5" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.ProgrammeLevel" Width="1.5" PointX="9.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.Programme" Width="1.5" PointX="7.5" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.ProgrammeStatu" Width="1.5" PointX="7.5" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.Registration" Width="1.5" PointX="17.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.RegistrationStatu" Width="1.5" PointX="15" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.RequiredCours" Width="1.5" PointX="9.75" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.Requirement" Width="1.5" PointX="12.75" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.Requirements_GeneralReq" Width="1.5" PointX="15" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.Result" Width="1.5" PointX="19.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.School" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.Semester" Width="1.5" PointX="10.5" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.Session" Width="1.5" PointX="12.75" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.SessionSem" Width="1.5" PointX="15" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.SessionStatu" Width="1.5" PointX="10.5" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.State" Width="1.5" PointX="1.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.StudentLevelPaymentStatu" Width="1.5" PointX="12.75" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.StudentLevel" Width="1.5" PointX="15" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.Student" Width="1.5" PointX="12.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResultMModel.StudentStatu" Width="1.5" PointX="10.5" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="ResultMModel.FK_StudentLevel_AvailabityStatu" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_AwardAwardLevel" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_AwardLevelProgrammeLevel" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_AwardLevelRequirement" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_LevelAwardLevel" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_CentreStudent" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_CityCentre" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_SchoolCentre" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_StateCity" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_Course_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_CourseRequiredCourse" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_ProgrammeLevelCurriculum" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_RequirementCurriculum" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_Department_Faculty" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_Programme_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_StudentLevel_StandingVerificationStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_Faculty_School" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_GeoZoneState" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_GradeResult" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_LGAStudent" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_StateLGA" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_ProgrammeLevel_Programme" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_ProgrammeLevel_ProgrammeStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_StudentLevel_ProgrammeLevel" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_Student_Programme" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_RegistrationResult" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_RegistrationStatusRegistration" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_RequiredCourseRegistration" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_SessionSemRegistration" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_StudentLevelRegistration" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_RequirementRequiredCourse" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_GeneralReq_inherits_Requirement" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_SemesterRequirement" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_SessionSem_Semester" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_Session_SessionStatu" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_SessionSem_Session" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_StudentLevel_Session" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_SessionSem_SessionStatu" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_StudentLevel_StudentLevelPaymentStatu" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_StudentLevel_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.FK_Student_StudentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.Requirements_FacultyReq" ManuallyRouted="false" />
+        <AssociationConnector Association="ResultMModel.Requirements_ProgrammeReq" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
